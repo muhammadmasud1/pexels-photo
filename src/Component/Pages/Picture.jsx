@@ -1,12 +1,8 @@
 import { useState } from "react";
 
-const Picture = ({ photos }) => {
-  const [clickedButton, setClickedButton] = useState(null);
-  console.log(photos);
-  const handleButtonClick = (button) => {
-    setClickedButton(button);
-  };
 
+const Picture = ({ photos , setSearch}) => {
+  const [checkButton,SetcheckButton] = useState(null)
 
  const handleDownload = (imageUrl) => {
    const link = document.createElement("a");
@@ -16,69 +12,65 @@ const Picture = ({ photos }) => {
    link.click();
    document.body.removeChild(link);
  };
+
+
   return (
-    <div className="max-w-6xl mx-auto my-36">
-      <div className="flex justify-center items-center gap-4">
+    <div className="container max-w-6xl mx-auto my-36">
+      <div className="flex justify-center items-center gap-5">
         <button
-          className={`button py-4 px-8  text-[16px] rounded-full ${
-            clickedButton === "nature"
-              ? "bg-blue-900 text-white"
-              : " text-black"
+          className={`px-5 py-3 text-xl  rounded-full ${
+            checkButton === "nature" ? "bg-black text-white" : "text-black"
           }`}
-          onClick={() => handleButtonClick("nature")}
+          onClick={() => {
+            setSearch("nature");
+            SetcheckButton("nature");
+          }}
         >
           Nature
         </button>
         <button
-          className={`button py-4 px-8 text-[16px] rounded-full ${
-            clickedButton === "travel" ? "bg-blue-900 text-white" : "text-black"
+          className={`px-5 py-3 text-xl  rounded-full ${
+            checkButton === "car" ? "bg-black text-white" : "text-black"
           }`}
-          onClick={() => handleButtonClick("travel")}
+          onClick={() => {
+            setSearch("car");
+            SetcheckButton("car");
+          }}
         >
-          Travel
+          Car
         </button>
         <button
-          className={`button py-4 px-8 text-[16px] rounded-full ${
-            clickedButton === "city" ? "bg-blue-900 text-white" : "text-black"
-          }`}
-          onClick={() => handleButtonClick("city")}
+          className={`px-5 py-3 text-xl rounded-full ${checkButton === "ai" ? "bg-black text-white" : "text-black"}`}
+          onClick={() => {
+            setSearch("ai");
+            SetcheckButton("ai")
+          }}
         >
-          City
+          {" "}
+          Artificial AI
         </button>
         <button
-          className={`button py-4 px-8 text-[16px] rounded-full ${
-            clickedButton === "technology"
-              ? "bg-blue-900 text-white"
-              : "text-black"
-          }`}
-          onClick={() => handleButtonClick("technology")}
+          className={`px-5 py-3 text-xl rounded-full ${checkButton === "fashion" ? "bg-black text-white" : "text-black"}`}
+          onClick={() => {
+            setSearch("fashion");
+            SetcheckButton("fashion")
+          }}
         >
-          Technology
+          {" "}
+          Fashion
         </button>
         <button
-          className={`button py-4 px-8 text-[16px] rounded-full ${
-            clickedButton === "fashion"
-              ? "bg-blue-900 text-white"
-              : "text-black"
-          }`}
-          onClick={() => handleButtonClick("fashion")}
+          className={`px-5 py-3 text-xl rounded-full ${checkButton === "film" ? "bg-black text-white" : "text-black"}`}
+          onClick={() => {
+            setSearch("film");
+            SetcheckButton("film")
+          }}
         >
-          Fashions
+          {" "}
+          Film
         </button>
-        <button
-          className={`button py-4 px-8 text-[16px] rounded-full ${
-            clickedButton === "cars" ? "bg-blue-900 text-white" : "text-black"
-          }`}
-          onClick={() => handleButtonClick("cars")}
-        >
-          Cars
-        </button>
-        <button
-          className={`button py-4 px-8 text-[16px] rounded-full ${
-            clickedButton === "save" ? "bg-blue-900 text-white" : "text-black"
-          }`}
-          onClick={() => handleButtonClick("save")}
-        >
+      
+        <button className="px-5 py-3 text-xl text-black rounded-full">
           Saved
         </button>
       </div>
