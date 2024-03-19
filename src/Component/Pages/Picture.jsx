@@ -1,12 +1,21 @@
-import  { useState } from "react";
+import { useState } from "react";
 
-const Picture = ({photos}) => {
+const Picture = ({ photos }) => {
   const [clickedButton, setClickedButton] = useState(null);
-  console.log(photos)
+  console.log(photos);
   const handleButtonClick = (button) => {
     setClickedButton(button);
   };
 
+
+ const handleDownload = (imageUrl) => {
+   const link = document.createElement("a");
+   link.href = imageUrl;
+   link.download = "image.jpg";
+   document.body.appendChild(link);
+   link.click();
+   document.body.removeChild(link);
+ };
   return (
     <div className="max-w-6xl mx-auto my-36">
       <div className="flex justify-center items-center gap-4">
@@ -86,17 +95,25 @@ const Picture = ({photos}) => {
             </select>
           </div>
         </div>
-        <div className="itemCard grid grid-cols-3 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-20">
+        <div className="itemCard grid grid-cols-1 items-start justify-center sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-20">
           {photos.map((photoItem) => (
             <div key={photoItem.id}>
-              <div className="card w-96 bg-base-100 shadow-xl">
-                <figure>
+              <div className="card bg-base-100 shadow-xl relative">
+                <figure className="">
                   <img
-                    className="overflow-hidden rounded-md w-full h-full"
+                    className="overflow-hidden relative rounded-md w-full h-full hover:scale-105 transition-all hover:cursor-pointer"
                     src={photoItem.src.medium}
                     alt="Photos"
                   />
                 </figure>
+                <div className="absolute bottom-3 left-3 opacity-0 transition-opacity duration-300">
+                  <button
+                    className="text-xl py-2 px-5 bg-[#088970] rounded-full hover:opacity-100 inline-block text-white"
+                    onClick={() => handleDownload(photoItem.src.original)}
+                  >
+                    Download
+                  </button>
+                </div>
               </div>
             </div>
           ))}

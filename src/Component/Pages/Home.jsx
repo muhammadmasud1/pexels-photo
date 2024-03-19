@@ -8,11 +8,12 @@ const Home = () => {
 
    const API_KEY = "32RbjC9489RT7tkziFOgH7wbZStsOVRHrO5zPRQJIDuhrndl03Opu1DE";
    const [photos, setPhotos] = useState([])
+   const [search,setSearch] = useState("nature")
 
    useEffect(()=> {
     const fetchImage = async() => {
       const res = await axios.get(
-        `https://api.pexels.com/v1/search?query=nature&per_page=80`,
+        `https://api.pexels.com/v1/search?query=${search}&per_page=80`,
         {
           headers: {
             Authorization: API_KEY,
@@ -24,11 +25,11 @@ const Home = () => {
      
     }
     fetchImage()
-   },[])
+   },[search])
   return (
     <div>
       <Navbar></Navbar>
-      <Banner></Banner>
+      <Banner setSearch={setSearch}></Banner>
       <Picture photos={photos}></Picture>
     </div>
   );

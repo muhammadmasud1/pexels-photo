@@ -1,5 +1,5 @@
 
-const Banner = () => {
+const Banner = ({ setSearch }) => {
   return (
     <div className="overlay">
       <div
@@ -81,6 +81,7 @@ const Banner = () => {
                         className="block p-2.5 w-full z-20 text-sm text-gray-900 outline-none bg-gray-50 rounded-e-lg  rounded-s-2 border border-gray-300 py-3"
                         placeholder="Search For Free Photo"
                         required
+                        onChange={(e)=> setSearch(e.target.value)}
                       />
                       <button
                         type="submit"

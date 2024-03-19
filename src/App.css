@@ -19,3 +19,7 @@ button:checked {
   color: white;
 }
 
+.card:hover .absolute {
+  opacity: 1;
+  overflow: hidden;
+}
