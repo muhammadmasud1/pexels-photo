@@ -107,10 +107,14 @@ const Banner = ({ setSearch }) => {
                 </form>
               </div>
               <h3 className="text-[#ccc] text-xl">
-                Tranding :{" "}
-                <span className="text-white font-semibold">
-                  Game, Plans, Burger, Italy, st Praticks Day
-                </span>{" "}
+                Tranding :
+                <span className="text-white font-semibold text-center">
+                  <span className="ml-2 cursor-pointer" onClick={()=> setSearch("game")}>Game,</span>
+                  <span className="ml-2 cursor-pointer" onClick={()=> setSearch("plans")}>Plans,</span>
+                  <span className="ml-2 cursor-pointer" onClick={()=> setSearch("burger")}>Burger,</span>
+                  <span className="ml-2 cursor-pointer" onClick={()=> setSearch("italy")}>Italy,</span>
+                  <span className="ml-2 cursor-pointer" onClick={()=> setSearch("praticks day")}>Praticks Day,</span>
+                </span>
               </h3>
             </div>
           </div>

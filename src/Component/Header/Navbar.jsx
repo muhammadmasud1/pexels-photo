@@ -1,6 +1,6 @@
 import { TfiLayoutMenuSeparated } from "react-icons/tfi";
 
-const Navbar = () => {
+const Navbar = ({ setSearch }) => {
   return (
     <div className="navbanner">
       <div className="max-w-7xl mx-auto">
@@ -89,25 +89,40 @@ const Navbar = () => {
                       Explore
                     </summary>
                     <ul className="p-2">
-                      <li className="text-black">
+                      <li
+                        onClick={() => setSearch("discover")}
+                        className="text-black"
+                      >
                         <a>Discover Photos </a>
                       </li>
-                      <li className="text-black">
+                      <li
+                        onClick={() => setSearch("popular")}
+                        className="text-black"
+                      >
                         <a>Popular Searches</a>
                       </li>
-                      <li className="text-black">
+                      <li
+                        onClick={() => setSearch("leaderboard")}
+                        className="text-black"
+                      >
                         <a>Leaderboard</a>
                       </li>
-                      <li className="text-black">
+                      <li
+                        onClick={() => setSearch("challenges")}
+                        className="text-black"
+                      >
                         <a>Challenges</a>
                       </li>
-                      <li className="text-black">
+                      <li
+                        onClick={() => setSearch("videos")}
+                        className="text-black"
+                      >
                         <a>Videos</a>
                       </li>
-                      <li className="text-black">
+                      <li onClick={() => setSearch("social")} className="text-black">
                         <a>Free Pexels</a>
                       </li>
-                      <li className="text-black">
+                      <li onClick={() => setSearch("blog")} className="text-black">
                         <a>Blog</a>
                       </li>
                     </ul>

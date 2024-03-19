@@ -28,7 +28,7 @@ const Home = () => {
    },[search])
   return (
     <div>
-      <Navbar></Navbar>
+      <Navbar setSearch={setSearch}></Navbar>
       <Banner setSearch={setSearch}></Banner>
       <Picture photos={photos} setSearch={setSearch}></Picture>
     </div>
