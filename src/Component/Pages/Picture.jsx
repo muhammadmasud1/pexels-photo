@@ -40,41 +40,47 @@ const Picture = ({ photos , setSearch}) => {
           Car
         </button>
         <button
-          className={`px-5 py-3 text-xl rounded-full ${checkButton === "ai" ? "bg-black text-white" : "text-black"}`}
+          className={`px-5 py-3 text-xl rounded-full ${
+            checkButton === "ai" ? "bg-black text-white" : "text-black"
+          }`}
           onClick={() => {
             setSearch("ai");
-            SetcheckButton("ai")
+            SetcheckButton("ai");
           }}
         >
           {" "}
           Artificial AI
         </button>
         <button
-          className={`px-5 py-3 text-xl rounded-full ${checkButton === "fashion" ? "bg-black text-white" : "text-black"}`}
+          className={`px-5 py-3 text-xl rounded-full ${
+            checkButton === "fashion" ? "bg-black text-white" : "text-black"
+          }`}
           onClick={() => {
             setSearch("fashion");
-            SetcheckButton("fashion")
+            SetcheckButton("fashion");
           }}
         >
           {" "}
           Fashion
         </button>
         <button
-          className={`px-5 py-3 text-xl rounded-full ${checkButton === "film" ? "bg-black text-white" : "text-black"}`}
+          className={`px-5 py-3 text-xl rounded-full ${
+            checkButton === "film" ? "bg-black text-white" : "text-black"
+          }`}
           onClick={() => {
             setSearch("film");
-            SetcheckButton("film")
+            SetcheckButton("film");
           }}
         >
           {" "}
           Film
         </button>
-      
+
         <button className="px-5 py-3 text-xl text-black rounded-full">
           Saved
         </button>
       </div>
-      <div className="ItemContainer my-10">
+      <div className="ItemContainer my-10" id="top">
         <div className="content flex justify-between items-center">
           <h1 className="text-2xl font-bold ">Free Stock Photos</h1>
           <div className="selected">
@@ -109,6 +115,18 @@ const Picture = ({ photos , setSearch}) => {
               </div>
             </div>
           ))}
+        </div>
+        <div className="text-center">
+          {photos.length != 0 && (
+            <button>
+              <a
+                className="px-4 py-2 bg-black text-white rounded-full text-xl"
+                href="#top"
+              >
+                Back to Top
+              </a>
+            </button>
+          )}
         </div>
       </div>
     </div>
