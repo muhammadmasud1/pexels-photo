@@ -7,10 +7,11 @@ function App() {
  
   return (
     <>
-     <Home></Home>
-       
+      
+      <Home></Home>
+      
     </>
-  )
+  );
 }
 
 export default App
