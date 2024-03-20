@@ -9,6 +9,7 @@ const Home = () => {
    const API_KEY = "32RbjC9489RT7tkziFOgH7wbZStsOVRHrO5zPRQJIDuhrndl03Opu1DE";
    const [photos, setPhotos] = useState([])
    const [search,setSearch] = useState("new york")
+   const [loader, setLoader] = useState(true)
 
    useEffect(()=> {
     const fetchImage = async() => {
@@ -22,7 +23,7 @@ const Home = () => {
       ); 
       //console.log("response", res.data.photos)
       setPhotos(res.data.photos)
-     
+      setLoader(false)
     }
     fetchImage()
    },[search])
@@ -30,7 +31,7 @@ const Home = () => {
     <div>
       <Navbar setSearch={setSearch}></Navbar>
       <Banner setSearch={setSearch}></Banner>
-      <Picture photos={photos} setSearch={setSearch}></Picture>
+      <Picture photos={photos} setSearch={setSearch} loader={loader}></Picture>
     </div>
   );
 };
